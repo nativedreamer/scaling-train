@@ -1,0 +1,7 @@
+{
+  "name": "WorldMonitor Finance - Geopolitical OSINT & Signal Engine",
+  "description": "Geopolitical OSINT intelligence ingestion, supply shock & instability indexes, and quantitative financial signal generator with PWA offline support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
