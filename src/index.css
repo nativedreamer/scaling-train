@@ -8,24 +8,134 @@
 
 :root {
   color-scheme: dark;
+  /* Emil design-eng curves */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --press-scale: 0.97;
+  --duration-press: 140ms;
+  --duration-ui: 180ms;
+  --duration-modal: 280ms;
+  --surface: #080c15;
+  --surface-elevated: #0b1220;
+  --border-subtle: rgba(30, 41, 59, 0.9);
 }
 
-html, body {
-  background-color: #080c15;
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+}
+
+html,
+body {
+  background-color: var(--surface);
   color: #f1f5f9;
   font-family: var(--font-sans);
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-/* Tabular figures for all financial & metrics elements */
-.tabular-nums {
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tabular figures for prices / metrics */
+.tabular-nums,
+.font-mono {
   font-variant-numeric: tabular-nums;
 }
 
-/* Custom terminal scrollbars */
+/* Pressable controls — feedback on pointer-down, not only click */
+.pressable {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  transition:
+    transform var(--duration-press) var(--ease-out),
+    background-color var(--duration-ui) var(--ease-out),
+    border-color var(--duration-ui) var(--ease-out),
+    color var(--duration-ui) var(--ease-out),
+    opacity var(--duration-ui) var(--ease-out);
+}
+
+.pressable:active {
+  transform: scale(var(--press-scale));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pressable:hover {
+    /* hover only when true hover exists — avoids sticky mobile hover */
+  }
+}
+
+button,
+a[role='button'],
+[role='button'],
+.tappable {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input,
+textarea,
+select {
+  font-size: 16px; /* prevent iOS zoom on focus */
+}
+
+@media (pointer: fine) {
+  input,
+  textarea,
+  select {
+    font-size: 0.75rem;
+  }
+}
+
+/* Safe-area helpers for installed PWA */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.shell {
+  min-height: 100dvh;
+}
+
+/* Card enter — never scale(0); start slightly under + opacity */
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-enter {
+  animation: card-in var(--duration-modal) var(--ease-out) both;
+}
+
+/* Interruptible expand region */
+.expand-panel {
+  overflow: hidden;
+  transition:
+    grid-template-rows var(--duration-ui) var(--ease-out),
+    opacity var(--duration-ui) var(--ease-out);
+}
+
+/* Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -40,6 +150,8 @@ html, body {
   border-radius: 3px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+@media (hover: hover) and (pointer: fine) {
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
 }

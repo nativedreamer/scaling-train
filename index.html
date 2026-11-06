@@ -2,18 +2,27 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"
+    />
     <title>WorldMonitor Finance - Geopolitical OSINT &amp; Signal Engine</title>
-    <meta name="description" content="Geopolitical OSINT intelligence ingestion, supply shock &amp; instability indexes, and quantitative financial signal generator with PWA offline support." />
-    
-    <!-- Open Graph & Social -->
+    <meta
+      name="description"
+      content="Geopolitical OSINT intelligence ingestion, supply shock &amp; instability indexes, and quantitative financial signal generator with PWA offline support."
+    />
+
     <meta property="og:title" content="WorldMonitor Finance - Geopolitical OSINT &amp; Signal Engine" />
-    <meta property="og:description" content="Geopolitical OSINT intelligence ingestion, supply shock &amp; instability indexes, and quantitative financial signal generator with PWA offline support." />
+    <meta
+      property="og:description"
+      content="Geopolitical OSINT intelligence ingestion, supply shock &amp; instability indexes, and quantitative financial signal generator with PWA offline support."
+    />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- PWA & Mobile Capabilities -->
-    <meta name="theme-color" content="#090d16" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#080c15" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#080c15" />
+    <meta name="color-scheme" content="dark" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -22,12 +31,16 @@
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- High-Performance Display & Tabular Font Pairing -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-slate-950 text-slate-100 antialiased font-sans selection:bg-cyan-500/20 selection:text-cyan-200">
+  <body
+    class="bg-slate-950 text-slate-100 antialiased font-sans selection:bg-cyan-500/20 selection:text-cyan-200"
+  >
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
